@@ -137,6 +137,20 @@ class ClaimValidatorTest {
         assertFalse(ClaimValidator.IsClaimForGameTypeValid(claim));
     }
 
+    @Test
+    void testInValidClaimForEarlyFiveUsingEnum() {
+        //given
+        boolean[] numbersAnnounced = new boolean[91];
+        int[] numbers = {80, 4, 46, 63, 46, 23, 76, 56};
+        setNumbersAnnounced(numbersAnnounced, numbers);
+        short[][] ticket = {{4, 16, 0, 0, 48, 0, 63, 76, 0}, {7, 0, 23, 38, 0, 52, 0, 0, 80}, {9, 0, 25, 0, 0, 56, 64, 0, 83}};
+        ValidationClaim claim = new ValidationClaim(numbersAnnounced, ticket, (short) 5, GameType.fromValue("early_five"));
+
+        //when && then
+        assertFalse(ClaimValidator.IsClaimForGameTypeValid(claim));
+    }
+
+
     private void setNumbersAnnounced(boolean[] numbersAnnounced, int[] numbers) {
         for (int num : numbers) {
             numbersAnnounced[num] = true;
