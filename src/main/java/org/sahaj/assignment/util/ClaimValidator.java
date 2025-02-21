@@ -1,5 +1,6 @@
-package org.sahaj.assignment;
+package org.sahaj.assignment.util;
 
+import org.sahaj.assignment.model.ValidationClaim;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ public class ClaimValidator {
 
     }
 
-    public static boolean IsClaimForGameTypeValid(ValidationClaim input){
+    public static boolean isClaimForGameTypeValid(ValidationClaim input){
         boolean[] numbersAnnounced = input.numbersAnnounced();
         short lastCalledNumber = input.lastCalledNumber();
         short[][] ticket = input.ticket();

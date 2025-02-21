@@ -1,4 +1,4 @@
-package org.sahaj.assignment;
+package org.sahaj.assignment.model;
 
 import java.util.Arrays;
 
